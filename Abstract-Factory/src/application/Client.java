@@ -1,8 +1,8 @@
 package application;
 
 import interfaces.Factory;
-import model.CaminhaoFactory;
-import model.CarroFactory;
+import model.caminhao.CaminhaoFactory;
+import model.carro.CarroFactory;
 
 public class Client {
 

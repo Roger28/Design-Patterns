@@ -1,4 +1,4 @@
-package model;
+package model.caminhao;
 
 import interfaces.Factory;
 import interfaces.IChassi;

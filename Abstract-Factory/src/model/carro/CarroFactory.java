@@ -1,4 +1,4 @@
-package model;
+package model.carro;
 
 import interfaces.Factory;
 import interfaces.IChassi;
