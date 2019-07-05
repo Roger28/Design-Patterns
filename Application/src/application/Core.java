@@ -18,7 +18,7 @@ public class Core implements ICore {
     public Core() {
         uiController = new UIController();
         pluginController = new PluginController();
-        uiController.initialize();
+        uiController.initialize(this);
         pluginController.initialize(this);
     }
     
