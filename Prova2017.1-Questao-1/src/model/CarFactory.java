@@ -1,69 +1,58 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import interfaces.ICounter;
 import interfaces.IChassi;
 import interfaces.IMotor;
 import interfaces.ITyre;
 
-public class CarFactory extends MyFactory {
+public class CarFactory implements MyFactory {
 
-	public CarFactory(int maxTyre, int maxMotor, int maxChassi) {
-		CarFactory.maxTyre = maxTyre;
-		CarFactory.maxMotor = maxMotor;
-		CarFactory.maxChassi = maxChassi;
-		this.carTyres = new ArrayList<CarTyre>();
-		this.carMotors = new ArrayList<CarMotor>();
-		this.carChassis = new ArrayList<CarChassi>();
-		addTyre();
-		addMotor();
-		addChassi();
+	private CarFactory(int maxTyre, int maxMotor, int maxChassi) {;
+		this.maxTyre = maxTyre;
+		this.maxMotor = maxMotor;
+		this.maxChassi = maxChassi;
+		this.currentTyre = 0;
+		this.currentMotor = 0;
+		this.currentChassi = 0;
+		this.carTyres = new CarTyre[maxTyre];
+		this.carMotors = new CarMotor[maxMotor];
+		this.carChassis = new CarChassi[maxChassi];
+	}
+	
+	public static CarFactory getInstance(int tyre, int chassi, int motor) {
+		if (carFactory == null) 
+			carFactory = new CarFactory(tyre, chassi, motor);
+		return carFactory;
 	}
 
 	@Override
 	public ITyre createTyre() {
-		this.setContador(new TireCounter());
-		return carTyres.get(this.contador.counter(CarFactory.maxTyre) - 1);
+		if(this.carTyres[this.currentTyre % this.maxTyre] == null)
+			this.carTyres[this.currentTyre] = new CarTyre();
+		return this.carTyres[this.currentTyre++ % this.maxTyre];
 	}
 
 	@Override
 	public IMotor createMotor() {
-		this.setContador(new EngineCounter());
-		return carMotors.get(this.contador.counter(CarFactory.maxMotor) - 1);
+		if(this.carMotors[this.currentMotor % this.maxMotor] == null)
+			this.carMotors[this.currentMotor % this.maxMotor] = new CarMotor();
+		return this.carMotors[this.currentMotor++ % this.maxMotor];
 	}
 
 	@Override
 	public IChassi createChassi() {
-		this.setContador(new ChassisCounter());
-		return carChassis.get(this.contador.counter(CarFactory.maxChassi)- 1);
-	}
-
-	private void addTyre() {
-		for (int i = 0; i < CarFactory.maxTyre; i++)
-			this.carTyres.add(new CarTyre());
-	}
-
-	private void addMotor() {
-		for (int i = 0; i < CarFactory.maxMotor; i++)
-			this.carMotors.add(new CarMotor());
-	}
-
-	private void addChassi() {
-		for (int i = 0; i < CarFactory.maxChassi; i++)
-			this.carChassis.add(new CarChassi());
+		if(this.carMotors[this.currentChassi % this.maxChassi] == null)
+			this.carMotors[this.currentChassi] = new CarMotor();
+		return this.carChassis[this.currentChassi++ % this.maxChassi];
 	}
 	
-	private void setContador(ICounter contador) {
-		this.contador = contador;
-	}
-	
-	private static int maxTyre;
-	private static int maxMotor;
-	private static int maxChassi;
-	private ICounter contador;
-	private List<CarTyre> carTyres;
-	private List<CarMotor> carMotors;
-	private List<CarChassi> carChassis;
+	private int maxTyre;
+	private int maxMotor;
+	private int maxChassi;
+	private int currentTyre;
+	private int currentMotor;
+	private int currentChassi;
+	private CarTyre[] carTyres;
+	private CarMotor[] carMotors;
+	private CarChassi[] carChassis;
+	private static CarFactory carFactory;
 }
