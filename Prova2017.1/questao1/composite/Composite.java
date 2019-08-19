@@ -21,6 +21,7 @@ public class Composite extends Produto {
 		throw new UnsupportedOperationException("Operação não suportada");
 	}
 	
+	@Override
 	public void increaseValue(double value) throws UnsupportedOperationException {
 		for(Produto produto: this.produtos) {
 			produto.increaseValue(value);

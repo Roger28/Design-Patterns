@@ -16,9 +16,7 @@ public abstract class Produto {
 		throw new UnsupportedOperationException("Operação não suportada");
 	}
 	
-	public void increaseValue(double value) throws UnsupportedOperationException {
-		throw new UnsupportedOperationException("Operação não suportada");
-	}
+	public abstract void increaseValue(double value);
 	
 	public double getPreco() {
 		return this.preco;
