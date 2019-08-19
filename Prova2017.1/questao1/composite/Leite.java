@@ -6,8 +6,4 @@ public class Leite extends Produto {
 		this.preco = preco;
 	}
 	
-	@Override
-	public void increaseValue(double value) throws UnsupportedOperationException {
-		this.preco = this.preco + (this.preco * value);
-	}
 }
