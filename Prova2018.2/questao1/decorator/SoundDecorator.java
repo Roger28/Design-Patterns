@@ -1,13 +1,15 @@
 package decorator;
 
-public class SoundDecorator extends Decorator {
+import bridge.IGame;
 
-	public SoundDecorator(IDecorator component) {
+public class SoundDecorator extends IDecorator {
+
+	public SoundDecorator(IGame component) {
 		super(component);
 	}
 
 	public void finish() {
 		super.finish();
-		System.out.print("+ som ");
+		System.out.println("Som");
 	}
 }

@@ -2,24 +2,25 @@ package bridge;
 
 public class FlappyBird extends IGame {
 
+	public FlappyBird(IBackend backend) {
+		super(backend);
+	}
+
 	@Override
 	public void initialize() {
 		backend.drawSprite();
 		backend.detectCollision();
-		backend.drawSprite();
-		backend.detectCollision();
-		backend.drawSprite();
-		backend.drawSprite();
 	}
 
 	@Override
 	public void start() {
 		backend.drawSprite();
-		backend.drawSprite();
 		backend.detectCollision();
-		backend.detectCollision();
-		backend.drawSprite();
-		backend.drawSprite();
+	}
+
+	@Override
+	public void finish() {
+		System.out.println("Finalizando FlappyBird.");
 	}
 
 }

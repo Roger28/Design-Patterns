@@ -2,6 +2,10 @@ package bridge;
 
 public class AngryBirds extends IGame {
 
+	public AngryBirds(IBackend backend) {
+		super(backend);
+	}
+
 	@Override
 	public void initialize() {
 		backend.drawSprite();
@@ -22,4 +26,8 @@ public class AngryBirds extends IGame {
 		backend.detectCollision();
 	}
 
+	@Override
+	public void finish() {
+		System.out.println("Finalizando AngryBirds.");
+	}
 }

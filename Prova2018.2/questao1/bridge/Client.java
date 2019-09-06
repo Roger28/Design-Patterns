@@ -8,13 +8,13 @@ public class Client {
 
 	public static void main(String[] args) {
 		
-		IGame game = new FlappyBird();
 		IBackend linux = new LinuxBackend();
-		game.setBackend(linux);
+		IGame game = new AngryBirds(linux);
 		IDecorator decorator = new SoundDecorator(new AnimationDecorator(game));
 		game.initialize();
 		game.start();
 		decorator.finish();
+
 	}
 
 }

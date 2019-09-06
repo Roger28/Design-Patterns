@@ -1,14 +1,16 @@
 package decorator;
 
-public class AnimationDecorator extends Decorator{
+import bridge.IGame;
 
-	public AnimationDecorator(IDecorator component) {
+public class AnimationDecorator extends IDecorator{
+
+	public AnimationDecorator(IGame component) {
 		super(component);
 	}
 	
 	public void finish() {
+		System.out.println("Animação");
 		super.finish();
-		System.out.print("+ animação ");
 	}
 
 }
