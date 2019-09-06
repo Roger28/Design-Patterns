@@ -25,6 +25,7 @@ public class Composite extends Fruta {
 		throw new UnsupportedOperationException("Operação não suportada");
 	}
 
+	@Override
 	public void realizarLimpeza() {
 		for (Fruta fruta : this.frutas)
 			fruta.realizarLimpeza();

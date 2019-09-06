@@ -14,7 +14,5 @@ public abstract class Fruta {
 		throw new UnsupportedOperationException("Operação não suportada");
 	}
 
-	public void realizarLimpeza() {
-		System.out.println("Realizando limpeza nas frutas.");
-	}
+	public abstract void realizarLimpeza();
 }
