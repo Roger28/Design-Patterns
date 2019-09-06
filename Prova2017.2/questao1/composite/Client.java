@@ -11,19 +11,18 @@ public class Client {
 		Composite cajusVerdesPequenos = new Composite();
 		Composite macasMadurasGrande = new Composite();
 		
-		cajus.add(new Caju());
-		macas.add(new Maçã());
-		macas.add(new Maçã());
-		macas.add(new Maçã());
+		frutas.add(cajus);
+		frutas.add(macas);
 		
-		cajusVerdes.add(cajus);
-		macasMaduras.add(macas);
+		cajus.add(cajusVerdes);
+		macas.add(macasMaduras);
 		
-		cajusVerdesPequenos.add(cajusVerdes);
-		macasMadurasGrande.add(macasMaduras);
+		cajusVerdes.add(cajusVerdesPequenos);
+		macasMaduras.add(macasMadurasGrande);
 		
-		frutas.add(cajusVerdesPequenos);
-		frutas.add(macasMadurasGrande);
+		cajusVerdesPequenos.add(new Caju());
+		cajusVerdesPequenos.add(new Caju());
+		macasMadurasGrande.add(new Maçã());
 		
 		frutas.realizarLimpeza();
 		System.out.println("------------------------");
