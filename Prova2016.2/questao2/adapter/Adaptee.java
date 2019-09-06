@@ -1,11 +1,13 @@
 package adapter;
 
-public abstract class Adaptee {
+public class Adaptee {
 
-//	public Adaptee(int x, int y) {
-//		this.x = x;
-//		this.y = y;
-//	}
+	public Adaptee() {}
+	
+	public Adaptee(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
 
 	public void mover(int deltaX, int deltaY) {
 		System.out.println("Movido para deltaX: " + deltaX + " e " + "deltaY: " + deltaY);
@@ -19,6 +21,6 @@ public abstract class Adaptee {
 		return this.y;
 	}
 
-	private int x;
-	private int y;
+	protected int x;
+	protected int y;
 }

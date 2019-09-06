@@ -1,13 +1,15 @@
 package decorator;
 
+import bridge.IVideo;
+
 public class PropagandaDepois extends PropagandaDecorator{
 
-	public PropagandaDepois(IComponent propaganda) {
+	public PropagandaDepois(IVideo propaganda) {
 		super(propaganda);
 	}
 
 	public void play() {
 		super.play();
-		System.out.print(" + Propaganda Depois");
+		System.out.println("Propaganda Depois");
 	}
 }

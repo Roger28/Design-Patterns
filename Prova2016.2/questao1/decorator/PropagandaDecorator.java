@@ -1,8 +1,10 @@
 package decorator;
 
-public abstract class PropagandaDecorator implements IComponent {
+import bridge.IVideo;
 
-	public PropagandaDecorator(IComponent propaganda) {
+public abstract class PropagandaDecorator extends IVideo {
+
+	public PropagandaDecorator(IVideo propaganda) {
 		this.propaganda = propaganda;
 	}
 
@@ -11,9 +13,5 @@ public abstract class PropagandaDecorator implements IComponent {
 		this.propaganda.play();
 	}
 
-	public void setPropaganda(Propaganda propaganda) {
-		this.propaganda = propaganda;
-	}
-	
-	protected IComponent propaganda;
+	private IVideo propaganda;
 }

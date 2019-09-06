@@ -1,19 +1,14 @@
 package bridge;
 
-import decorator.IComponent;
-
-public abstract class IVideo implements IComponent{
+public abstract class IVideo{
 
 	protected ICodec codec;
 	
-	public void setCodec(ICodec codec) {
+	public IVideo() {}
+	
+	public IVideo(ICodec codec) {
 		this.codec = codec;
 	}
-	
-	public abstract void renderizar(String arquivo);
 
-	@Override
-	public void play() {
-		System.out.print("Rodando video");
-	}
+	public abstract void play();
 }
